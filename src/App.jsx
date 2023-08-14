@@ -1,22 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './components/nav/navbar'
-import Searchbar from './components/searchbar/searchbar'
-import Filter from './components/filter/filter'
-import Card from './components/card/card'
+import { Route, Routes } from "react-router-dom";
+import { ROUTES } from './utils/constants'
+import HomePage from './pages/home/home';
+import CountryInformationPage from './pages/country-information/country-information';
+import NotFound from './pages/not-found/not-found';
 
 const App = () => {
   return (
     <>
-      <Navbar/>
-      <div className='mx-[5rem]'>
-        <div className='mt-[2.94rem] flex flex-wrap justify-between'>
-          <Searchbar/>
-          <Filter/>
-        </div>
-        <div className='mt-[3.05rem] flex flex-wrap justify-between '>
-          <Card/>
-        </div>
-      </div>
+        <Navbar/>
+        <Routes>
+          <Route path={ROUTES.HOME} element={<HomePage/>} />
+          <Route path={ROUTES.INFORMATION} element={<CountryInformationPage/>} />
+          <Route path={ROUTES.ERROR} element={<NotFound/>} />
+        </Routes>
     </>
   )
 }
