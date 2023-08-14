@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        /* LIGHT MODE */
+        --bg-light-primary: 255, 255, 255;
+        --color-dark-primary: 0, 0, 0;
+        --color-dark-secondary: 18, 18, 20;
+    
+        /* DARK MODE */
+        --bg-dark-primary: 33, 46, 55;
+        --bg-dark-secondary: 43, 55, 67;
+        --color-light-secondary: 255, 255, 255;
+    }  
+  }
+
+  
