@@ -1,5 +1,5 @@
 export const ROUTES = {
     HOME: '/',
-    INFORMATION: '/country-information',
+    INFORMATION: '/country-information/:country',
     ERROR: '*',
 };
