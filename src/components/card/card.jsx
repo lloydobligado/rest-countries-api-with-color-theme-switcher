@@ -1,26 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-
-const url = 'https://restcountries.com/v3.1/all'
+import { useCountriesApi } from '../../services/rest-counties'
 
 const Card = () => {
+  const { useGetAllCountry } = useCountriesApi();
 
-  const [countries, setCountries] = useState([])
+  const { data: countriesData, isLoading } = useGetAllCountry();
 
-  const getCountry = async () => {
-    const response = await fetch(url)
-    const country  = await response.json()
-    setCountries(country)
+  // const sortedCountryInfo = response.data.sort((a, b) => {
+  //   const nameA = a.name.common.toLowerCase();
+  //   const nameB = b.name.common.toLowerCase();
+  //   return nameA.localeCompare(nameB);
+  // });
+  
+  if (isLoading) {
+    return (
+      <div>LOADING MUNA BHIE...</div>
+    )
   }
-
-  useEffect(() => {
-    getCountry()
-  }, [])
-
-
   return (
     <>
-    {countries.map((country) => {
+    {countriesData.map((country) => {
         return (
           <Link
             className="flex-shrink-0"
