@@ -1,3 +1,4 @@
+import { Box } from '@mui/material'
 import React, { useState } from 'react'
 
 const Filter = () => {
@@ -23,7 +24,7 @@ const Filter = () => {
     )
   })
   return (
-    <div className='relative hover:cursor-pointer w-[12.5rem] h-[3.5rem] py-4 pl-[1.5rem] pr-[.75rem] flex justify-between items-center rounded-[0.1875rem] shadow-light'
+    <Box className='relative hover:cursor-pointer w-[12.5rem] h-[3.5rem] py-4 pl-[1.5rem] pr-[.75rem] flex justify-between items-center rounded-[0.1875rem] shadow-light'
          onClick={handleFilter}>
       <p className='font-roboto text-color-dark-secondary text-[.875rem]'>
         Filter by Region
@@ -46,7 +47,7 @@ const Filter = () => {
       <ul className={`absolute top-[3.75rem] right-0 w-[12.5rem] h-[10.125rem] pt-[1.12rem] pb-4 bg-white shadow-light ${toggleFilter ? "flex" : "hidden"} flex-col justify-between rounded-[0.1875rem] z-10`}>
         {Regions}
       </ul>
-    </div>
+    </Box>
   )
 }
 
