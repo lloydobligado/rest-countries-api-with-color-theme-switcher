@@ -57,7 +57,7 @@ const CountryInformationPage = () => {
                 {countryDetails?.borders?.map((borderCountry) => (
                   <Button
                     key={borderCountry}
-                    className="mx-[5px] px-[27px] h-[26px] text-[#121214] text-[14px] font-normal shadow-light"
+                    className="!m-[5px] !px-[27px] !h-[26px] !text-[#121214] !text-[14px] !font-normal shadow-light"
                     variant="text"
                   >
                     {borderCountry}
