@@ -37,7 +37,7 @@ export const useCountriesApi = () => {
     const useGetCountry = (name) => {
         return useQuery({
             queryKey: [`country-name:${name}`, name],
-            queryFn: async () => getCountry(),
+            queryFn: async () => getCountry(name),
             keepPreviousData: true,
         })
     }
