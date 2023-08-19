@@ -38,7 +38,7 @@ const Card = () => {
                 <Box className="card-text px-[1.5rem] pt-[1.70rem]">
                     <h6 className="country text-color-dark-secondary font-roboto text-[1.125rem] font-bold">{country.name.common}</h6>
                     <ul className="country-description h-[64px] mt-[1.20rem] flex flex-col justify-between">
-                        <li className='text-color-dark-secondary font-roboto text-[.875rem] font-medium'>Population: <span className='opacity-50 font-normal'>{country.population}</span></li>
+                        <li className='text-color-dark-secondary font-roboto text-[.875rem] font-medium'>Population: <span className='opacity-50 font-normal'>{country.population.toLocaleString()}</span></li>
                         <li className='text-color-dark-secondary font-roboto text-[.875rem] font-medium'>Region: <span className='opacity-50 font-normal'>{country.region}</span></li>
                         <li className='text-color-dark-secondary font-roboto text-[.875rem] font-medium'>Capital: <span className='opacity-50 font-normal'>{country.capital}</span></li>
                     </ul>
