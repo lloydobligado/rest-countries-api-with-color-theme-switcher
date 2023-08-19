@@ -1,8 +1,11 @@
+// src/utils/constants.js
 export const ROUTES = {
     HOME: '/',
+    REGION: '/region/:region',
     INFORMATION: '/country-information/:country',
     ERROR: '*',
 };
+
 
 export const RegionData = 
 [

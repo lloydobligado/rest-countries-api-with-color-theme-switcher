@@ -1,23 +1,27 @@
-import { Box } from '@mui/material'
-import React, { useState } from 'react'
-import { RegionData } from '../../utils/constants'
+import React, { useState } from 'react';
+import { Box } from '@mui/material';
+import { RegionData } from '../../utils/constants';
+import { Link, useParams } from 'react-router-dom';
 
 const Filter = () => {
-
-  const [toggleFilter, setToggleFilter] = useState(false)
+  const [toggleFilter, setToggleFilter] = useState(false);
+  const { region } = useParams();
 
   const handleFilter = () => {
-    setToggleFilter((prevToggleFilter) => !prevToggleFilter)
+    setToggleFilter((prevToggleFilter) => !prevToggleFilter);
   }
 
-  const handleRegion = (region) => {
-  }
-
-  const Regions = RegionData.map((region) => {
+  const Regions = RegionData.map((regionObj) => {
     return (
-        <li key={region.id} className='px-[1.5rem] hover:bg-gray-100' onClick={() => handleRegion(region.region)}>{region.region}</li>
-    )
-  })
+      <Link
+        key={regionObj.id}
+        className={`px-[1.5rem] hover:bg-gray-100 ${regionObj.region.toLowerCase() === region ? 'bg-gray-100' : ''}`}
+        to={`/region/${regionObj.region.toLowerCase()}`}
+      >
+        {regionObj.region}
+      </Link>
+    );
+  });
   return (
     <Box className='relative hover:cursor-pointer w-[12.5rem] h-[3.5rem] max-md:mt-[50px] py-4 pl-[1.5rem] pr-[.75rem] flex justify-between items-center rounded-[0.1875rem] shadow-light'
          onClick={handleFilter}>

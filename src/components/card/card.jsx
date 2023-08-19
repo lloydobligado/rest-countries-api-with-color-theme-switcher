@@ -1,29 +1,29 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { useCountriesApi } from '../../services/rest-counties'
-import {Box, CircularProgress} from '@mui/material';
+import React from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useCountriesApi } from '../../services/rest-counties';
+import { Box, CircularProgress } from '@mui/material';
 
 const Card = () => {
-  const { useGetAllCountry } = useCountriesApi();
+  const { region } = useParams();
 
-  const { data: countriesData, isLoading } = useGetAllCountry();
+  const { useGetAllCountry, useGetCountryByRegion } = useCountriesApi();
 
-  // const sortedCountryInfo = response.data.sort((a, b) => {
-  //   const nameA = a.name.common.toLowerCase();
-  //   const nameB = b.name.common.toLowerCase();
-  //   return nameA.localeCompare(nameB);
-  // });
-  
-  if (isLoading) {
+  const { data: countriesData, isLoading: countriesLoading } = useGetAllCountry();
+  const { data: regionData, isLoading: regionLoading } = useGetCountryByRegion(region);
+
+  if (countriesLoading || regionLoading) {
     return (
       <Box sx={{ display: 'flex' }} className="h-full w-full flex justify-center">
         <CircularProgress />
       </Box>
-    )
+    );
   }
+
+  const data = region ? regionData : countriesData;
+
   return (
     <>
-    {countriesData.map((country) => {
+    {data.map((country) => {
         return (
           <Link
             className="flex-shrink-0"
@@ -46,7 +46,7 @@ const Card = () => {
                 </Box>
               </Box>
             </Link>
-        )
+        );
     })}
     </>
   )
