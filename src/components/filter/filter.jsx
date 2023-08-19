@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import React, { useState } from 'react'
+import { RegionData } from '../../utils/constants'
 
 const Filter = () => {
 
@@ -8,23 +9,17 @@ const Filter = () => {
   const handleFilter = () => {
     setToggleFilter((prevToggleFilter) => !prevToggleFilter)
   }
-  
-  const RegionData = 
-  [
-    { id: 1, region: 'Africa'},
-    { id: 2, region: 'America'},
-    { id: 3, region: 'Asia'},
-    { id: 4, region: 'Europe'},
-    { id: 5, region: 'Oceania'}
-  ]
+
+  const handleRegion = (region) => {
+  }
 
   const Regions = RegionData.map((region) => {
     return (
-        <li key={region.id} className='px-[1.5rem] hover:bg-gray-100'>{region.region}</li>
+        <li key={region.id} className='px-[1.5rem] hover:bg-gray-100' onClick={() => handleRegion(region.region)}>{region.region}</li>
     )
   })
   return (
-    <Box className='relative hover:cursor-pointer w-[12.5rem] h-[3.5rem] py-4 pl-[1.5rem] pr-[.75rem] flex justify-between items-center rounded-[0.1875rem] shadow-light'
+    <Box className='relative hover:cursor-pointer w-[12.5rem] h-[3.5rem] max-md:mt-[50px] py-4 pl-[1.5rem] pr-[.75rem] flex justify-between items-center rounded-[0.1875rem] shadow-light'
          onClick={handleFilter}>
       <p className='font-roboto text-color-dark-secondary text-[.875rem]'>
         Filter by Region

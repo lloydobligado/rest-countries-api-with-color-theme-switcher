@@ -20,7 +20,32 @@ module.exports = {
         'bg-dark-primary': 'rgb(var(--bg-dark-primary))', //
         'bg-dark-secondary': 'rgb(var(--bg-dark-secondary))',
         'color-light-secondary': 'rgb(var(--color-light-secondary))',
-      }
+      },
+      screens: {
+        "max-mobile": "540px",
+        // => @media (max-width: 568px) { ... }
+
+        mobile: "540px",
+        // => @media (min-width: 568px) { ... }
+
+        sm: "640px",
+        // => @media (min-width: 640px) { ... }
+
+        md: "768px",
+        // => @media (min-width: 768px) { ... }
+
+        lg: "1024px",
+        // => @media (min-width: 1024px) { ... }
+
+        xl: "1280px",
+        // => @media (min-width: 1280px) { ... }
+
+        "2xl": "1536px",
+        // => @media (min-width: 1536px) { ... }
+
+        "18k": "1800px",
+        // => @media (min-width: 1800px) { ... }
+      },
     }
   },
   plugins: [],
